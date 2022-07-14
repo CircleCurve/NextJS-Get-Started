@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+ frontend:
+    volumes:
+      - ${FRONTEND_PATH}:/usr/src/app
+    build:
+      # context: ${GAME_FRONTEND_PATH}
+      context: ./
+    ports:
+      - ${FRONTEND_PORT}:3000
+    command: sh -c "yarn install && yarn dev"
