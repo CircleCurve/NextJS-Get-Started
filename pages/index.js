@@ -21,15 +21,15 @@ export default function Home({ allPostsData }) {
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
-            <Link key={id} href={`/posts/${id}`}>
-              <li className={utilStyles.listItem} key={id}>
+            <li className={utilStyles.listItem} key={id}>
+              <Link key={id} href={`/posts/${id}`}>
                 {title}
-                <br />
-                {id}
-                <br />
-                {date}
-              </li>
-            </Link>
+              </Link>
+              <br />
+              <small className={utilStyles.lightText}>
+                <Date dateString={date} />
+              </small>
+            </li>
           ))}
         </ul>
       </section>
